@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from langchain.tools import tool
 load_dotenv()
 
 Accounts = {
@@ -13,14 +14,15 @@ Accounts = {
 
 
 
-def search_account_balance(account_id):
+@tool
+def search_account_balance(account_id: str):
     """Given the account ID, returns the balance of the account """
     if account_id in Accounts:
         return Accounts[account_id]["Balance"]
     else:
         return "Not found!!"
-
-def send_email(account_id,to_address,subject,body):
+@tool
+def send_email(account_id: str, to_address: str, subject: str, body: str):
     """Whole objective is to look up the account_id double check if
     it's inside the dict list and send the email"""
     if account_id not in Accounts:
@@ -31,8 +33,8 @@ def send_email(account_id,to_address,subject,body):
     else:
         return "Address not verified"
 
-
-def transfer_funds(from_account, to_account, amount):
+@tool
+def transfer_funds(from_account: str, to_account: str, amount: float):
     """
     Validates and executes a fund transfer between accounts.
     Assumes 'Accounts' is a global dictionary structured as:
