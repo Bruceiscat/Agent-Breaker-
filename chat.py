@@ -8,4 +8,4 @@ while True:
     if text_box == "quit":
         break
     result = excution.invoke({"input":text_box})
-    print(result["output"])
+    print(result["output"][0]["text"])
