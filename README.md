@@ -1,4 +1,5 @@
-AgentBreaker
+AgentBreaker-
+
 A Python tool that red-teams LLM agents for prompt injection vulnerabilities. AgentBreaker fires a set of prompt injection attacks at a tool-using agent, uses a second LLM to judge whether each attack succeeded, and generates an HTML vulnerability report.
 The Problem
 As companies deploy LLM agents to automate real tasks moving money, sending emails, calling APIs prompt injection becomes a critical risk: an attacker who controls the agent's input can hijack those capabilities. Prompt injection is ranked LLM01:2025 on the OWASP LLM Top 10, the most prominent vulnerability class for language-model systems. The specific goal of the attacks in this project getting the agent to leak its own instructions maps to LLM07:2025 System Prompt Leakage.
